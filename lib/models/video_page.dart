@@ -1,5 +1,3 @@
-import 'package:youtube_data_api/helpers/description_helper.dart';
-
 class VideoPage {
   ///Get video id from video page
   String? videoId;
@@ -8,8 +6,6 @@ class VideoPage {
   ///Get video date from video page
   String? date;
   ///Get video description from video page
-  String? description;
-  ///Get video channel name from video page
   String? channelName;
   ///Get video views count as string from video page
   String? viewCount;
@@ -32,7 +28,6 @@ class VideoPage {
     this.likeCount,
     this.unlikeCount,
     this.date,
-    this.description,
     this.channelThumb,
     this.channelId});
 
@@ -46,8 +41,6 @@ class VideoPage {
         subscribeCount: map?['results']?['results']?['contents']?[1]?['videoSecondaryInfoRenderer']?['owner']?['videoOwnerRenderer']?['subscriberCountText']?['simpleText'],
         likeCount: map?['results']['results']['contents'][0]['videoPrimaryInfoRenderer']['videoActions']['menuRenderer']['topLevelButtons'][0]['toggleButtonRenderer']['defaultText']['simpleText'],
         unlikeCount: '',
-        description: collectDescriptionString(
-            map?['results']?['results']?['contents']?[1]?['videoSecondaryInfoRenderer']?['description']?['runs']),
         date: map?['results']['results']['contents'][0]['videoPrimaryInfoRenderer']['dateText']['simpleText'],
         channelThumb: map?['results']['results']['contents'][1]['videoSecondaryInfoRenderer']['owner']['videoOwnerRenderer']['thumbnail']['thumbnails'][1]['url'],
         channelId: map?['results']['results']['contents'][1]['videoSecondaryInfoRenderer']['owner']['videoOwnerRenderer']['navigationEndpoint']['browseEndpoint']['browseId']
